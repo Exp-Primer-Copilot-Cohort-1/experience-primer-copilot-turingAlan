@@ -9,4 +9,4 @@ router.post('/create',commentController.create);
 //route for deleting comment
 router.get('/destroy/:id',commentController.destroy);
 
-module.exports === router;
+module.exports == router;
