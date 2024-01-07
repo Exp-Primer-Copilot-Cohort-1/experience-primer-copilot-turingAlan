@@ -1,11 +1,12 @@
-// create a server
-var http = require('http');
-var url = require('url');
+//create a server
+const express = require('express');
+const router = express.Router();
+const commentController = require('../controllers/comment_controller');
 
-// create a server object:
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  var q = url.parse(req.url, true).query; // parse the url
-  var txt = q.year + " " + q.month;
-  res.end(txt);
-}).listen(8080); // the server object listens on port 8080
+//route for creating comment
+router.post('/create',commentController.create);
+
+//route for deleting comment
+router.get('/destroy/:id',commentController.destroy);
+
+module.exports = router;
